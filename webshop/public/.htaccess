@@ -1,0 +1,7 @@
+RewriteEngine On
+
+# If the url is product/[something], we change the url to product.php?slug=[something]
+RewriteRule ^product/(.*)$ product.php?slug=$1 [NC,L]
+
+# same example, but only allow an integer
+# RewriteRule ^product/([0-9]+)$ product.php?id=$1 [NC,L]

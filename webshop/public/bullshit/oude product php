@@ -1,0 +1,40 @@
+oude
+
+<?php
+// print_r($_GET['slug']); 
+	include "../boot.php";
+
+	// SELECT * FROM products ORDER BY id DESC LIMIT 3
+	// resultaat
+	// fetch
+	
+	$database = db(); // verbinding maken
+	// query: SELECT * FROM products WHERE slug = :slug
+	$product = $database->prepare('SELECT * FROM products WHERE slug = :slug');
+	
+	try{
+		$product->execute([
+			'slug' => $_GET['slug']
+		]);
+		$product->setFetchMode(PDO::FETCH_ASSOC);
+		$product= $product->fetch();
+
+		// if (! $product) {
+		// 	header(']location: 404.php');
+		// }
+	}
+	catch(Exception $e){
+		http_response_code(500);
+		dd($e->getMessage());
+
+	}
+
+
+
+// database connectie maken
+// query draaien
+// try/catch
+// printen
+
+// de rest van je shit
+?>
