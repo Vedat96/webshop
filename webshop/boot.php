@@ -15,7 +15,7 @@ if (! isset($_SESSION['cart'])) {
 function db()
 {
     $host = 'localhost';
-    $database = 'webshop php';
+    $database = 'webshop';
     $username = 'root';
     $password = '';
 
